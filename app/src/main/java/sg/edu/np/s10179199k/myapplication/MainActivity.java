@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     TextView tvNewUser;
@@ -28,4 +30,22 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-}
+    public void onLoginClick(View v) {
+        EditText userName = findViewById(R.id.etUsername);
+        EditText passWord = findViewById(R.id.etPassword);
+
+        String userNameInput = userName.getText().toString();
+        String passwordInput = passWord.getText().toString();
+
+/*        Account lgd = new Account(userNameInput, passwordInput);
+
+        if (db.findAccount(userNameInput, passwordInput, lgd)) {
+            Intent mainPage = new Intent(getBaseContext(), ToDoList.class);
+            startActivity(mainPage);
+        } else {
+            Toast.makeText(getApplicationContext(), "Invalid Username or password", Toast.LENGTH_SHORT).show();
+            userName.getText().clear();
+            passWord.getText().clear();
+        }*/
+
+}}
