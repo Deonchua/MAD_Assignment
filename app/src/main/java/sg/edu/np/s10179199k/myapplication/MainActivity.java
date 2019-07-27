@@ -31,11 +31,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onLoginClick(View v) {
-        EditText userName = findViewById(R.id.etUsername);
-        EditText passWord = findViewById(R.id.etPassword);
+        //EditText userName = findViewById(R.id.etUsername);
+        //EditText passWord = findViewById(R.id.etPassword);
 
-        String userNameInput = userName.getText().toString();
-        String passwordInput = passWord.getText().toString();
+        //String userNameInput = userName.getText().toString();
+        //String passwordInput = passWord.getText().toString();
 
         Account lgd = new Account(userNameInput, passwordInput);
         DbHandler db = new DbHandler(this, null, null, 1);
