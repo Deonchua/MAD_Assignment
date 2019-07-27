@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 
 public class NoteAdapter
 {
-    Context c;
+    /*Context c;
     int layout;
     ArrayList<Note> data;
 
@@ -35,5 +35,5 @@ public class NoteAdapter
 
         Log.d("L04", "Existing View" + position);
 
-    }
+    }*/
 }
