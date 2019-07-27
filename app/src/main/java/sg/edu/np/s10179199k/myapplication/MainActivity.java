@@ -37,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
         String userNameInput = userName.getText().toString();
         String passwordInput = passWord.getText().toString();
 
-/*        Account lgd = new Account(userNameInput, passwordInput);
+        Account lgd = new Account(userNameInput, passwordInput);
+        DbHandler db = new DbHandler(this, null, null, 1);
 
         if (db.findAccount(userNameInput, passwordInput, lgd)) {
             Intent mainPage = new Intent(getBaseContext(), ToDoList.class);
@@ -46,6 +47,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Invalid Username or password", Toast.LENGTH_SHORT).show();
             userName.getText().clear();
             passWord.getText().clear();
-        }*/
+        }
 
 }}
