@@ -1,7 +1,18 @@
 package sg.edu.np.s10179199k.myapplication;
 
-public class NoteAdapter {
-    /*Context c;
+import android.content.Context;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+
+public class NoteAdapter extends ArrayAdapter<Note> {
+
+    Context c;
     int layout;
     ArrayList<Note> data;
 
@@ -25,5 +36,14 @@ public class NoteAdapter {
 
         Log.d("L04", "Existing View" + position);
 
-    }*/
+        TextView title = v.findViewById(R.id.txtTitle);
+        TextView content = v.findViewById(R.id.txtContent);
+
+        Note n = data.get(position);
+        title.setText(n.getTitle());
+        content.setText(n.getContent());
+
+        return v;
+
+    }
 }
