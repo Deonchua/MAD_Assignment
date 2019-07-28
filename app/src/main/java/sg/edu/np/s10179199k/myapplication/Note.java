@@ -1,7 +1,6 @@
 package sg.edu.np.s10179199k.myapplication;
 
-public class Note
-{
+public class Note {
     private String title;
     private String content;
 
@@ -20,8 +19,6 @@ public class Note
     public void setContent(String content) {
         this.content = content;
     }
-
-
 
 
 }

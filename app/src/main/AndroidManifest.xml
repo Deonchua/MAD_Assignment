@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="sg.edu.np.s10179199k.myapplication">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,19 +13,31 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".GoogleLogin"
+
+        <activity android:name=".MainItem"
             android:exported="true"/>
+        <activity android:name=".Mainboard"
+            android:exported="true"/>
+        <activity
+            android:name=".Main_View"
+            android:exported="true" />
+        <activity android:name=".Posting_Activity" />
+        <activity
+            android:name=".GoogleLogin"
+            android:exported="true" />
         <activity android:name=".CreateNote" />
-        <activity android:name=".ToDoList" />
-        <activity android:name=".CreateNewUser" />
+        <activity
+            android:name=".ToDoList"
+            android:exported="true" />
+        <activity android:name=".CreateNewUser"
+            android:exported="true"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
+
 </manifest>

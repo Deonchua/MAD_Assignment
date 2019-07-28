@@ -1,16 +1,6 @@
 package sg.edu.np.s10179199k.myapplication;
 
-import android.content.Context;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import java.util.ArrayList;
-import java.util.regex.Pattern;
-
-public class NoteAdapter
-{
+public class NoteAdapter {
     /*Context c;
     int layout;
     ArrayList<Note> data;

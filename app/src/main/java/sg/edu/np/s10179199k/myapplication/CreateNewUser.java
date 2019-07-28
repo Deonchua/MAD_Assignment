@@ -1,8 +1,8 @@
 package sg.edu.np.s10179199k.myapplication;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 public class CreateNewUser extends AppCompatActivity {
@@ -13,8 +13,7 @@ public class CreateNewUser extends AppCompatActivity {
         setContentView(R.layout.activity_create_new_user);
     }
 
-    public void onCancel(View v)
-    {
+    public void onCancel(View v) {
         Intent in = new Intent(CreateNewUser.this, MainActivity.class);
         startActivity(in);
     }
