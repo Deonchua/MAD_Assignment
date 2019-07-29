@@ -1,5 +1,6 @@
 package sg.edu.np.s10179199k.myapplication;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
@@ -16,12 +17,15 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NoteListActivity extends AppCompatActivity {
 
     ArrayList <Note> titles = new ArrayList<>();
     ArrayList <Note> notes = new ArrayList<>();
     ArrayAdapter noteAdapter;
+
+    ListView noteList;
 
 
 
@@ -45,7 +49,7 @@ public class NoteListActivity extends AppCompatActivity {
 
 
         // Adapter
-         NoteAdapter noteAdapter = new NoteAdapter(this, R.layout.layout_note, titles, notes);
+        final NoteAdapter noteAdapter = new NoteAdapter(this, R.layout.layout_note, titles, notes);
 
         //Listview
         ListView noteList = findViewById(R.id.lvNoteList);
@@ -85,6 +89,34 @@ public class NoteListActivity extends AppCompatActivity {
             }
         });
         */
+
+    }
+
+    public void onNoteLongClick()
+    {
+        noteList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+                final int itemNo = position;
+
+                new AlertDialog.Builder(NoteListActivity.this)
+                        .setTitle("Delete Note")
+                        .setMessage("Do you want to delete : " + titles)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                titles.remove(which);
+                                notes.remove(which);
+                                noteAdapter.notifyDataSetChanged();
+                            }
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
+                return true;
+
+            }
+        });
     }
 
 }

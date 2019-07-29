@@ -39,7 +39,9 @@ public class NoteContentActivity extends AppCompatActivity {
 
     private void onSaveNote()
     {
+        String header = title.getText().toString();
         String text = content.getText().toString();
+
 
 
     }
