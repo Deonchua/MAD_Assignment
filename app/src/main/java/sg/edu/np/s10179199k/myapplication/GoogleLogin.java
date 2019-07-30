@@ -177,7 +177,7 @@ public class GoogleLogin extends AppCompatActivity {
                             FirebaseUser user = firebaseAuth.getCurrentUser();
                         } else {
                             Log.d("TAG", "signInWith:failure", task.getException());
-                            Toast.makeText(GoogleLogin.this, "Wuthentication failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(GoogleLogin.this, "Authentication failed", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

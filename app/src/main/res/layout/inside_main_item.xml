@@ -3,31 +3,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    <CheckedTextView
-        android:id="@+id/checkedTextView"
-        android:layout_width="272dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="CheckedTextView" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="5">
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@color/colorPrimary"
-        android:foreground="@drawable/common_full_open_on_phone"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
+        <TextView
+            android:id="@+id/tvinsidemain"
+            android:layout_width="21dp"
+            android:layout_height="53dp"
+            android:layout_weight="10"
+            android:text="TextView"
+            android:textSize="14sp" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@color/colorAccent"
-        android:foreground="@android:drawable/ic_delete"
-        app:srcCompat="@android:drawable/ic_menu_delete"
-        tools:srcCompat="@android:drawable/ic_menu_edit" />
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:foreground="@drawable/common_full_open_on_phone"
+            app:srcCompat="@android:drawable/ic_menu_edit" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:foreground="@android:drawable/ic_delete"
+            app:srcCompat="@android:drawable/ic_menu_delete"
+            tools:srcCompat="@android:drawable/ic_menu_edit" />
+    </LinearLayout>
+
 </LinearLayout>

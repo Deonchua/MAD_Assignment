@@ -1,7 +1,7 @@
-package sg.edu.np.s10179199k.myapplication;
+package Model;
 
 import java.io.Serializable;
-
+import android.text.TextUtils;
 public class Note implements Serializable {
     /*private String title;
     private String content;
@@ -28,6 +28,7 @@ public class Note implements Serializable {
     private String date;
 
 
+
     public String getId(){return id;}
 
     public void setId(String id){this.id = id;}
@@ -40,7 +41,15 @@ public class Note implements Serializable {
 
     public void setDesc(String description){this.desc = desc;}
 
-    public Note(String id,String title, String desc, String date ) {
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public Note(String id, String title, String desc, String date ) {
         this.id = id;
         this.title = title;
         this.desc = desc;

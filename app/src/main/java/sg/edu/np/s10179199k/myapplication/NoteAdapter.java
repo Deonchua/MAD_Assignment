@@ -1,6 +1,13 @@
 package sg.edu.np.s10179199k.myapplication;
 
-public class NoteAdapter {
+import android.app.Activity;
+import android.support.v7.widget.RecyclerView;
+import android.widget.Filterable;
+
+/*public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> implements Filterable{
+
+    private Activity context;
+}*/
     /*Context c;
     int layout;
     ArrayList<Note> data;
@@ -26,4 +33,6 @@ public class NoteAdapter {
         Log.d("L04", "Existing View" + position);
 
     }*/
-}
+
+
+

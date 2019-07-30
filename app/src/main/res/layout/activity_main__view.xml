@@ -9,7 +9,7 @@
 
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/myRecycleView"
+        android:id="@+id/rvmainview"
         android:layout_width="395dp"
         android:layout_height="587dp"
         android:layout_marginStart="8dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/mvfab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

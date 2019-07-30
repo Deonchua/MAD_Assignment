@@ -8,46 +8,47 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
 import static sg.edu.np.s10179199k.myapplication.inDB.INTENT_TODO_ID;
-import static sg.edu.np.s10179199k.myapplication.inDB.INTENT_TODO_NAME;
 
 public class MainItem extends AppCompatActivity {
-    Toolbar item_toolbar;
+    //Toolbar item_toolbar;
     RecyclerView rv_item;
     FloatingActionButton fab_item;
 
     long todoId = -1;
     MainItem activity;
     NewDbHandler dbHandler;
+
     ItemTouchHelper touchHelper;
+
     ItemAdapter adapter;
+
     ArrayList<NewItemToDo> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_item);
+        setContentView(R.layout.activity_main__view);
 
-        rv_item = findViewById(R.id.recyclerView2);
-        fab_item = findViewById(R.id.floatingActionButton2);
-        setSupportActionBar(item_toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle(getIntent().getStringExtra(INTENT_TODO_NAME));
+        rv_item = findViewById(R.id.rvmainview);
+        fab_item = findViewById(R.id.mvfab);
+
+
+
+
         todoId = getIntent().getLongExtra(INTENT_TODO_ID, -1);
         activity = this;
         dbHandler = new NewDbHandler(activity);
@@ -57,9 +58,11 @@ public class MainItem extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(activity);
-                dialog.setTitle("Add ToDo Item");
+
+
+                dialog.setTitle("Add Event");
                 View view = getLayoutInflater().inflate(R.layout.inside_mainboard, null);
-                final EditText toDoName = view.findViewById(R.id.editText9);
+                final EditText toDoName = view.findViewById(R.id.etinmain);
                 dialog.setView(view);
                 dialog.setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     @Override
@@ -126,12 +129,12 @@ public class MainItem extends AppCompatActivity {
 
     void updateItem(final NewItemToDo item) {
         AlertDialog.Builder dialog = new AlertDialog.Builder(activity);
-        dialog.setTitle("Update ToDo Item");
+        dialog.setTitle("Change Item");
         View view = getLayoutInflater().inflate(R.layout.inside_mainboard, null);
-        final EditText toDoName = view.findViewById(R.id.editText9);
+        final EditText toDoName = view.findViewById(R.id.etinmain);
         toDoName.setText(item.getItemName());
         dialog.setView(view);
-        dialog.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+        dialog.setPositiveButton("Change", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 if (toDoName.getText().toString().length() > 0) {
@@ -169,7 +172,7 @@ public class MainItem extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull final ViewHolder holder, final int i) {
             holder.itemName.setText(list.get(i).getItemName());
-            holder.itemName.setChecked(list.get(i).isCompleted());
+            //holder.itemName.setChecked(list.get(i).isCompleted());
             holder.itemName.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -181,19 +184,21 @@ public class MainItem extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     AlertDialog.Builder dialog = new AlertDialog.Builder(activity);
-                    dialog.setTitle("Are you sure");
+                    //dialog.setTitle("Are you sure");
                     dialog.setMessage("Do you want to delete this item ?");
-                    dialog.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int pos) {
-                            activity.dbHandler.deleteToDoItem(list.get(i).getId());
-                            activity.refreshList();
-                        }
-                    });
-                    dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+                    dialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
 
+                        }
+                    });
+                    dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int pos) {
+
+                            activity.dbHandler.deleteToDoItem(list.get(i).getId());
+                            activity.refreshList();
                         }
                     });
                     dialog.show();
@@ -206,16 +211,7 @@ public class MainItem extends AppCompatActivity {
                     activity.updateItem(list.get(i));
                 }
             });
-            holder.move.setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View view, MotionEvent motionEvent) {
 
-                    if (motionEvent.getActionMasked() == MotionEvent.ACTION_DOWN) {
-                        activity.touchHelper.startDrag(holder);
-                    }
-                    return false;
-                }
-            });
 
         }
 
@@ -225,17 +221,18 @@ public class MainItem extends AppCompatActivity {
         }
 
         class ViewHolder extends RecyclerView.ViewHolder {
-            CheckBox itemName;
+            TextView itemName;
             ImageView edit;
             ImageView delete;
-            ImageView move;
+
 
             ViewHolder(View v) {
                 super(v);
-                itemName = v.findViewById(R.id.checkedTextView);
+                itemName = v.findViewById(R.id.tvinsidemain);
                 edit = v.findViewById(R.id.imageView5);
                 delete = v.findViewById(R.id.imageView6);
-                //move = v.findViewById(R.id.iv_move);
+
+
             }
         }
     }

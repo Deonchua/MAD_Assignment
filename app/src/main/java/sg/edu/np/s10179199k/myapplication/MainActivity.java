@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     TextView tvNewUser;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         //String userNameInput = userName.getText().toString();
         //String passwordInput = passWord.getText().toString();
 
-        Account lgd = new Account(userNameInput, passwordInput);
+       /* Account lgd = new Account(userNameInput, passwordInput);
         DbHandler db = new DbHandler(this, null, null, 1);
 
         if (db.findAccount(userNameInput, passwordInput, lgd)) {
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Invalid Username or password", Toast.LENGTH_SHORT).show();
             userName.getText().clear();
             passWord.getText().clear();
-        }
+        }*/
 
     }
 }

@@ -32,6 +32,8 @@ public class NewDbHandler extends SQLiteOpenHelper {
                 COL_ID + " integer PRIMARY KEY AUTOINCREMENT," +
                 COL_CREATED_AT + " datetime DEFAULT CURRENT_TIMESTAMP," +
                 COL_NAME + " varchar)";
+
+
         String createToDoItemTable =
                 "CREATE TABLE " + TABLE_TODO_ITEM + " (" +
                         COL_ID + " integer PRIMARY KEY AUTOINCREMENT," +
@@ -39,6 +41,8 @@ public class NewDbHandler extends SQLiteOpenHelper {
                         COL_TODO_ID + " integer," +
                         COL_ITEM_NAME + " varchar," +
                         COL_IS_COMPLETED + " integer)";
+
+
 
         db.execSQL(createToDoTable);
         db.execSQL(createToDoItemTable);
@@ -50,6 +54,7 @@ public class NewDbHandler extends SQLiteOpenHelper {
     }
 
     boolean addToDo(NewToDo todo) {
+
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COL_NAME, todo.getName());
@@ -59,6 +64,7 @@ public class NewDbHandler extends SQLiteOpenHelper {
 
 
     void updateToDo(NewToDo todo) {
+
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COL_NAME, todo.getName());
@@ -66,12 +72,14 @@ public class NewDbHandler extends SQLiteOpenHelper {
     }
 
     void deleteToDo(Long todoId) {
+
         SQLiteDatabase db = getWritableDatabase();
         db.delete(TABLE_TODO_ITEM, COL_TODO_ID + "=?", new String[]{String.valueOf(todoId)});
         db.delete(TABLE_TODO, COL_ID + "=?", new String[]{String.valueOf(todoId)});
     }
 
     void updateToDoItemCompletedStatus(Long todoId, Boolean isCompleted) {
+
         SQLiteDatabase db = getWritableDatabase();
         Cursor queryResult = db.rawQuery("SELECT * FROM " + TABLE_TODO_ITEM + " WHERE " + COL_TODO_ID + "=" + todoId, null);
         if (queryResult.moveToFirst()) {
@@ -88,6 +96,7 @@ public class NewDbHandler extends SQLiteOpenHelper {
     }
 
     public void updateToDoItem(NewItemToDo item) {
+
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COL_ITEM_NAME, item.getItemName());
@@ -97,6 +106,7 @@ public class NewDbHandler extends SQLiteOpenHelper {
     }
 
     ArrayList<NewToDo> getToDos() {
+
         ArrayList<NewToDo> result = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
         Cursor queryResult = db.rawQuery("SELECT * from " + TABLE_TODO, null);
@@ -113,6 +123,8 @@ public class NewDbHandler extends SQLiteOpenHelper {
     }
 
     public boolean addToDoItem(NewItemToDo item) {
+
+
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COL_ITEM_NAME, item.getItemName());
@@ -124,12 +136,14 @@ public class NewDbHandler extends SQLiteOpenHelper {
     }
 
     public void deleteToDoItem(long itemId) {
+
         SQLiteDatabase db = getWritableDatabase();
         db.delete(TABLE_TODO_ITEM, COL_ID + "=?", new String[]{String.valueOf(itemId)});
 
     }
 
     public ArrayList<NewItemToDo> getToDoItems(long todoId) {
+
         ArrayList<NewItemToDo> result = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
         Cursor queryResult = db.rawQuery("SELECT * FROM " + TABLE_TODO_ITEM + " WHERE " + COL_TODO_ID + "=" + todoId, null);
@@ -141,6 +155,7 @@ public class NewDbHandler extends SQLiteOpenHelper {
                 item.setItemName(queryResult.getString(queryResult.getColumnIndex(COL_ITEM_NAME)));
                 item.setCompleted(queryResult.getInt(queryResult.getColumnIndex(COL_IS_COMPLETED)) == 1);
                 result.add(item);
+
             } while (queryResult.moveToNext());
         }
 

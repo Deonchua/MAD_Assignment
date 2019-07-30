@@ -13,11 +13,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
-        <activity android:name=".MainItem"
-            android:exported="true"/>
-        <activity android:name=".Mainboard"
-            android:exported="true"/>
+        <activity android:name=".ListNote"></activity>
+        <activity android:name=".AddNote" />
+        <activity
+            android:name=".MainItem"
+            android:exported="true" />
+        <activity
+            android:name=".Mainboard"
+            android:exported="true" />
         <activity
             android:name=".Main_View"
             android:exported="true" />
@@ -29,8 +32,9 @@
         <activity
             android:name=".ToDoList"
             android:exported="true" />
-        <activity android:name=".CreateNewUser"
-            android:exported="true"/>
+        <activity
+            android:name=".CreateNewUser"
+            android:exported="true" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
