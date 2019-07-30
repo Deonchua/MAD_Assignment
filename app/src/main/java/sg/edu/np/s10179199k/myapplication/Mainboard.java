@@ -40,7 +40,7 @@ public class Mainboard extends AppCompatActivity {
         rv = findViewById(R.id.rvmain);
         fab_main = findViewById(R.id.fabmain);
         //setSupportActionBar(dashboard_toolbar);
-        setTitle("Dashboard");
+        setTitle("lifeNote");
         activity = this;
         dbHandler = new NewDbHandler(activity);
         rv.setLayoutManager(new LinearLayoutManager(activity));
@@ -171,7 +171,7 @@ public class Mainboard extends AppCompatActivity {
                                         @Override
                                         public void onClick(DialogInterface dialogInterface, int i) {
 
-                                            activity.dbHandler.deleteToDoItem(list.get(i).getId());
+                                            //activity.dbHandler.deleteToDoItem(list.get(i).getId());
                                             activity.refreshList();
 
                                         }

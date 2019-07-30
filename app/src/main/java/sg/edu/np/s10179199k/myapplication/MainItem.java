@@ -43,6 +43,8 @@ public class MainItem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main__view);
 
+        setTitle("lifeNote");
+
         rv_item = findViewById(R.id.rvmainview);
         fab_item = findViewById(R.id.mvfab);
 
