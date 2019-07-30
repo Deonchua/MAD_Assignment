@@ -2,7 +2,6 @@ package sg.edu.np.s10179199k.myapplication;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -36,23 +35,6 @@ public class DbHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(ACCOUNTS, null, values);
         db.close();
-    }
-
-    public boolean findAccount (String username, String password, Account a)
-    {
-        String query = "SELECT * FROM " + ACCOUNTS + " WHERE " + COLUMN_USERNAME + " = \"" + username + "\"" + " AND " + COLUMN_PASSWORD + " = \"" + password + "\"";
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(query, null);
-
-        if (cursor.moveToFirst()) {
-            a.setUsername(cursor.getString(6));
-            a.setPassword(cursor.getString(7));
-            db.close();
-            return true;
-        }
-        db.close();
-        return false;
     }
 }
 

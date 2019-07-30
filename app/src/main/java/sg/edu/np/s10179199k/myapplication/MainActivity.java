@@ -1,12 +1,18 @@
 package sg.edu.np.s10179199k.myapplication;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
     TextView tvNewUser;
@@ -30,23 +36,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onLoginClick(View v) {
-        //EditText userName = findViewById(R.id.etUsername);
-        //EditText passWord = findViewById(R.id.etPassword);
+        EditText userName = findViewById(R.id.etUsername);
+        EditText passWord = findViewById(R.id.etPassword);
 
-        //String userNameInput = userName.getText().toString();
-        //String passwordInput = passWord.getText().toString();
+        String txtUser = userName.getText().toString();
+        String txtPass = passWord.getText().toString();
 
-       /* Account lgd = new Account(userNameInput, passwordInput);
-        DbHandler db = new DbHandler(this, null, null, 1);
+        Pattern userPattern = Pattern.compile("^[A-Za-z0-9]{6,12}$");
+        Matcher userMatcher = userPattern.matcher(txtUser);
 
-        if (db.findAccount(userNameInput, passwordInput, lgd)) {
-            Intent mainPage = new Intent(getBaseContext(), ToDoList.class);
-            startActivity(mainPage);
+        Pattern passPattern = Pattern.compile("^(?=.*[A-Z])(?=.*[0-9])(?=.*\\W).*$");
+        Matcher passMatcher = passPattern.matcher(txtPass);
+
+        if (userMatcher.matches() && passMatcher.matches()) {
+            SharedPreferences sharedPref = getSharedPreferences("MY_GLOBAL_PREFS", MODE_PRIVATE);
+            String user = sharedPref.getString("User_name", "");
+            String pass = sharedPref.getString("Pass_word", "");
+            Log.d("04L", "User: " + user + " Pass: " + pass);
+            if (txtUser.equals(user) && txtPass.equals(pass)) {
+                Toast.makeText(MainActivity.this, "Valid", Toast.LENGTH_LONG).show();
+                Intent in = new Intent(MainActivity.this, Mainboard.class);
+                startActivity(in);
+            }
         } else {
-            Toast.makeText(getApplicationContext(), "Invalid Username or password", Toast.LENGTH_SHORT).show();
-            userName.getText().clear();
-            passWord.getText().clear();
-        }*/
+            Toast tt = Toast.makeText(MainActivity.this, "Invalid Login", Toast.LENGTH_LONG);
+            tt.show();
 
     }
-}
+}}
