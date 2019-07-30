@@ -43,7 +43,7 @@ public class MainItem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main__view);
 
-        setTitle("lifeNote");
+        setTitle("lifeNote items");
 
         rv_item = findViewById(R.id.rvmainview);
         fab_item = findViewById(R.id.mvfab);
@@ -91,6 +91,7 @@ public class MainItem extends AppCompatActivity {
         touchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP | ItemTouchHelper.DOWN, 0) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder p1, @NonNull RecyclerView.ViewHolder p2) {
+
                 int sourcePosition = p1.getAdapterPosition();
                 int targetPosition = p2.getAdapterPosition();
                 Collections.swap(list, sourcePosition, targetPosition);

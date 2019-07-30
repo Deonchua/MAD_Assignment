@@ -39,7 +39,7 @@ public class Mainboard extends AppCompatActivity {
 
         rv = findViewById(R.id.rvmain);
         fab_main = findViewById(R.id.fabmain);
-        //setSupportActionBar(dashboard_toolbar);
+
         setTitle("lifeNote");
         activity = this;
         dbHandler = new NewDbHandler(activity);
@@ -50,7 +50,7 @@ public class Mainboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(activity);
-                dialog.setTitle("Add ToDo");
+                dialog.setTitle("Add Main Event");
                 View view = getLayoutInflater().inflate(R.layout.inside_mainboard, null);
                 final EditText toDoName = view.findViewById(R.id.etinmain);
                 dialog.setView(view);
