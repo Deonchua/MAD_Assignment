@@ -7,9 +7,16 @@ public class Note {
     private int noteId;
     private String title;
     private String content;
-    private String date;
 
+    public Note(){
 
+    }
+
+    public Note(int noteId,String title,String content){
+        this.noteId = noteId;
+        this.title = title;
+        this.content = content;
+    }
 
     public int getNoteId() {
         return noteId;
@@ -18,16 +25,6 @@ public class Note {
     public void setNoteId(int noteId) {
         this.noteId = noteId;
     }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-
 
     public String getTitle() {
         return title;

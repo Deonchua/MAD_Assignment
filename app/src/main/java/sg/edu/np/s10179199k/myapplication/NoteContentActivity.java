@@ -23,8 +23,6 @@ public class NoteContentActivity extends AppCompatActivity {
         content = findViewById(R.id.txtNoteContent);
 
 
-
-
     }
 
     public boolean onOptionsItemSelected(MenuItem item)
@@ -43,6 +41,11 @@ public class NoteContentActivity extends AppCompatActivity {
         String text = content.getText().toString();
 
 
+
+    }
+
+    private void loadNote()
+    {
 
     }
 

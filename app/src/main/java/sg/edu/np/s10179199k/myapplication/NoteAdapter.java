@@ -1,89 +1,61 @@
 package sg.edu.np.s10179199k.myapplication;
 
 import android.content.Context;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
-import android.widget.ListView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class NoteAdapter extends ArrayAdapter<Note>{
+public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder>
+{
+    Context context;
+    List<Note> noteList = new ArrayList<>();
 
-    Context c;
-    int layout;
-
-    ArrayList<Note> text;
-
-
-    public NoteAdapter(Context c, int layout, ArrayList<Note> title, ArrayList<Note> content)
+    public NoteAdapter(Context context, List<Note> noteList)
     {
-        super(c, layout, content);
+        this.context = context;
+        this.noteList = noteList;
+    }
 
-        this.c = c;
-        this.layout = layout;
-        this.text = text;
+    @Override
+    public NoteViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+    {
+        View v = LayoutInflater.from(context).inflate(R.layout.new_layout_note, parent, false);
+        NoteViewHolder noteViewHolder = new NoteViewHolder(v);
+        return noteViewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull NoteViewHolder nvh, int position)
+    {
+        nvh.tvTitle.setText(noteList.get(position).getTitle());
+        nvh.tvContent.setText(noteList.get(position).getTitle());
     }
 
 
-    /*
-    class NoteHolder extends RecyclerView.ViewHolder
+    @Override
+    public int getItemCount()
     {
-        TextView title, content, date;
+        return noteList.size();
+    }
 
-        public NoteHolder(View itemView)
+    public class NoteViewHolder extends RecyclerView.ViewHolder
+    {
+        TextView tvTitle, tvContent;
+
+        public NoteViewHolder(View itemView)
         {
             super(itemView);
-            title = itemView.findViewById(R.id.txtTitle);
+
+            tvTitle = itemView.findViewById(R.id.note_title);
+            tvContent = itemView.findViewById(R.id.note_content);
         }
-    }
-
-
-    @NonNull
-    @Override
-    public NoteHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(c).inflate(R.layout.new_layout_note, parent, false);
-        return new NoteHolder(v);
-    }
-
-    */
-
-    @NonNull
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent)
-    {
-        View v = convertView;
-        if (v == null)
-        {
-            v = LayoutInflater.from(c)
-                    .inflate(layout, parent, false);
-            Log.d("L04", "New View" + position);
-        }
-
-        Log.d("L04", "Existing View" + position);
-
-
-
-        TextView title = v.findViewById(R.id.note_title);
-        TextView content = v.findViewById(R.id.note_content);
-        TextView date = v.findViewById(R.id.note_date);
-
-        Note n = text.get(position);
-        title.setText(n.getTitle());
-        content.setText(n.getContent());
-        date.setText(n.getDate());
-
-        return v;
-
     }
 
 
