@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             String pass = sharedPref.getString("Pass_word", "");
             Log.d("04L", "User: " + user + " Pass: " + pass);
             if (txtUser.equals(user) && txtPass.equals(pass)) {
-                Toast.makeText(MainActivity.this, "Valid", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Successful Login", Toast.LENGTH_LONG).show();
                 Intent in = new Intent(MainActivity.this, Mainboard.class);
                 startActivity(in);
             }
