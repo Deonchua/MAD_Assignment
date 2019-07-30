@@ -57,33 +57,33 @@ public class NoteDbHandler extends SQLiteOpenHelper
         onCreate(db);
     }
 
-    public void addNote(Note note)
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
+    public void addNote(Note note){}}
+
+       /* SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(KEY_TITLE, note.getTitle());
         values.put(KEY_CONTENT, note.getContent());
 
         db.insert(TABLE_NAME, null, values);
-        db.close();
+        db.close();*/
 
-    }
 
-    public Note getContent(int id)
-    {
+
+   /* public Note getContent(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor c = db.query(TABLE_NAME, NOTES_COLUMN, KEY_ID
-                                + "=?", new String[]{String.valueOf(id)}, null, null, null, null);
+                + "=?", new String[]{String.valueOf(id)}, null, null, null, null);
+        return null;
+    */
 
-        if (c != null)
-        {
+        /*if (c != null) {
             c.moveToFirst();
-        }
-        db.close();
+        }*/
+        /*db.close();*/
 
-        Log.d(TAG, "Get Note Result " + c.getString(0) + ", "
+       /* Log.d(TAG, "Get Note Result " + c.getString(0) + ", "
                                             + c.getString(1) + ", "
                                             + c.getString(2));
 
@@ -91,11 +91,11 @@ public class NoteDbHandler extends SQLiteOpenHelper
                                                 c.getString(1),
                                                 c.getString(2));
 
-        return note;
+        return note;*/
 
-    }
 
-    public List<Note> getAllCOntent()
+
+    /*public List<Note> getAllCOntent()
     {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -120,9 +120,7 @@ public class NoteDbHandler extends SQLiteOpenHelper
             db.close();
             return noteList;
         }
-    }
+    }*/
 
 
 
-
-}

@@ -49,7 +49,7 @@ public class NoteListActivity extends AppCompatActivity {
 
 
         // Adapter
-        final NoteAdapter noteAdapter = new NoteAdapter(this, R.layout.layout_note, titles, notes);
+       /* final NoteAdapter noteAdapter = new NoteAdapter(this, R.layout.layout_note, titles, notes);
 
         //Listview
         ListView noteList = findViewById(R.id.lvNoteList);
@@ -80,7 +80,7 @@ public class NoteListActivity extends AppCompatActivity {
             }
         });
 
-        /*
+        *//*
         noteList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int i, long l) {
@@ -88,8 +88,8 @@ public class NoteListActivity extends AppCompatActivity {
                                 .setIcon(R.drawable.ic_dia)
             }
         });
-        */
-
+        *//*
+*/
     }
 
     public void onNoteLongClick()

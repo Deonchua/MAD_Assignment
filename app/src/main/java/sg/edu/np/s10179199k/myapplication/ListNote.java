@@ -34,7 +34,7 @@ import java.util.List;
 import Model.Note;
 public class ListNote extends AppCompatActivity {
 
-    DatabaseReference databaseNotes;
+   /* DatabaseReference databaseNotes;
     private RecyclerView recyclerView;
     //private NoteAdapter adapter;
 
@@ -170,10 +170,10 @@ public class ListNote extends AppCompatActivity {
 
         super.onBackPressed();
         finish();
-    }
+    }*/
 
-    public DatabaseReference getDatabase(){
+    /*public DatabaseReference getDatabase(){
         return databaseNotes;
-    }
+    }*/
 }
 

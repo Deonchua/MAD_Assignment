@@ -8,16 +8,16 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class CreateNewUser extends AppCompatActivity {
-    EditText UsernameET;
-    EditText PasswordET;
+    EditText etUsername;
+    EditText etPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_new_user);
 
-        UsernameET = findViewById(R.id.etUser);
-        PasswordET = findViewById(R.id.etPass);
+        etUsername = findViewById(R.id.etUser);
+        etPassword = findViewById(R.id.etPass);
     }
 
     public void onCancel(View v) {
@@ -27,8 +27,8 @@ public class CreateNewUser extends AppCompatActivity {
 
     public void onCreate (View v)
     {
-        String username = UsernameET.getText().toString();
-        String password = PasswordET.getText().toString();
+        String username = etUsername.getText().toString();
+        String password = etPassword.getText().toString();
 
         Account registerAcc = new Account(username, password);
 
