@@ -85,7 +85,7 @@ public class Mainboard extends AppCompatActivity {
 
     public void updateToDo(final NewToDo toDo) {
         AlertDialog.Builder dialog = new AlertDialog.Builder(activity);
-        dialog.setTitle("Update ToDo");
+        dialog.setTitle("Update the List");
         View view = getLayoutInflater().inflate(R.layout.inside_mainboard, null);
         final EditText toDoName = view.findViewById(R.id.etinmain);
         toDoName.setText(toDo.getName());
@@ -167,10 +167,13 @@ public class Mainboard extends AppCompatActivity {
 
                                     dialog.setMessage("Do you want to delete this Item?");
                                     dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
                                         @Override
                                         public void onClick(DialogInterface dialogInterface, int i) {
-                                            activity.dbHandler.deleteToDo(list.get(i).getId());
+
+                                            activity.dbHandler.deleteToDoItem(list.get(i).getId());
                                             activity.refreshList();
+
                                         }
                                     });
                                     dialog.setNegativeButton("No", new DialogInterface.OnClickListener() {

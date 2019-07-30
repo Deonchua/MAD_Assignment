@@ -173,18 +173,18 @@ public class MainItem extends AppCompatActivity {
         public void onBindViewHolder(@NonNull final ViewHolder holder, final int i) {
             holder.itemName.setText(list.get(i).getItemName());
             //holder.itemName.setChecked(list.get(i).isCompleted());
-            holder.itemName.setOnClickListener(new View.OnClickListener() {
+            /*holder.itemName.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     list.get(i).setCompleted(!list.get(i).isCompleted());
                     activity.dbHandler.updateToDoItem(list.get(i));
                 }
-            });
+            });*/
             holder.delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     AlertDialog.Builder dialog = new AlertDialog.Builder(activity);
-                    //dialog.setTitle("Are you sure");
+
                     dialog.setMessage("Do you want to delete this item ?");
 
                     dialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -198,9 +198,11 @@ public class MainItem extends AppCompatActivity {
                         public void onClick(DialogInterface dialogInterface, int pos) {
 
                             activity.dbHandler.deleteToDoItem(list.get(i).getId());
+
                             activity.refreshList();
                         }
                     });
+                    dialog.show();
                     dialog.show();
                 }
             });

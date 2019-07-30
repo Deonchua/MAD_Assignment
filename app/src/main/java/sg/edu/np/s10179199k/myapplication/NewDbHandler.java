@@ -74,11 +74,17 @@ public class NewDbHandler extends SQLiteOpenHelper {
     void deleteToDo(Long todoId) {
 
         SQLiteDatabase db = getWritableDatabase();
+
+
+
         db.delete(TABLE_TODO_ITEM, COL_TODO_ID + "=?", new String[]{String.valueOf(todoId)});
         db.delete(TABLE_TODO, COL_ID + "=?", new String[]{String.valueOf(todoId)});
+
+
+
     }
 
-    void updateToDoItemCompletedStatus(Long todoId, Boolean isCompleted) {
+    /*void updateToDoItemCompletedStatus(Long todoId, Boolean isCompleted) {
 
         SQLiteDatabase db = getWritableDatabase();
         Cursor queryResult = db.rawQuery("SELECT * FROM " + TABLE_TODO_ITEM + " WHERE " + COL_TODO_ID + "=" + todoId, null);
@@ -93,7 +99,7 @@ public class NewDbHandler extends SQLiteOpenHelper {
             } while (queryResult.moveToNext());
         }
         queryResult.close();
-    }
+    }*/
 
     public void updateToDoItem(NewItemToDo item) {
 
@@ -138,7 +144,10 @@ public class NewDbHandler extends SQLiteOpenHelper {
     public void deleteToDoItem(long itemId) {
 
         SQLiteDatabase db = getWritableDatabase();
+
         db.delete(TABLE_TODO_ITEM, COL_ID + "=?", new String[]{String.valueOf(itemId)});
+
+
 
     }
 

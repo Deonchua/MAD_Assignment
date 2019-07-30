@@ -13,7 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ListNote"></activity>
+        <activity android:name=".mainapi"
+            android:exported = "true"></activity>
+        <activity android:name=".ListNote" />
         <activity android:name=".AddNote" />
         <activity
             android:name=".MainItem"
@@ -27,8 +29,7 @@
         <activity android:name=".Posting_Activity" />
         <activity
             android:name=".GoogleLogin"
-            android:exported="true" />
-        <activity android:name=".CreateNote" />
+            android:exported="true" /> <!-- <activity android:name=".CreateNote" /> -->
         <activity
             android:name=".ToDoList"
             android:exported="true" />
